@@ -218,8 +218,7 @@ function update(){
   document.getElementById('breakdown').innerHTML=bh;
 
   drawChart(document.getElementById('chart'),HIST,baseCY,wp,s.c);
-  document.getElementById('cLeg').innerHTML=`<span style="color:#58a6ff">━━</span> Target (FY${bCYr%100}) <span style="color:${s.c}">╌╌</span> War (FY${wCY%100}) <span style="color:#3fb950">╌╌</span> 3%`+(dl>0?`<div style="color:${s.c};font-weight:700;margin-top:2px">Delays FRBM by ${dl}yr.</div>`:'');
-
+  document.getElementById('cLeg').innerHTML=`<span style="color:#58a6ff">━━</span> Target (FY${bCYr%100}) &nbsp;<span style="color:${s.c}">╌ ╌</span> War (FY${wCY%100}) &nbsp;<span style="color:#3fb950">┈┈</span> 3% mandate`
   let qh='';
   [["Moderate ($110, 3m)",110,3],["Mod-Ext ($110, 6m)",110,6],["Severe ($130, 6m)",130,6],["Extreme ($150, 12m)",150,12]].forEach(([nm,o,d])=>{
     const t=compute(o,d);qh+=`<button class="qbtn" onclick="oil=${o};dur=${d};document.getElementById('oilS').value=${o};document.getElementById('durS').value=${d};update()">
