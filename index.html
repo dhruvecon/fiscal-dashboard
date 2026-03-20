@@ -138,7 +138,7 @@ function compute(oil,dur){
     const qpR=(cie.q*cie.p)/(Q0.crude*P0.crude)-1;
     rv.cust+=qpR*13134*mf*(1+.026*so);
     if(!elec&&oil>85){const x=oil-85;
-      rv.exc-=(Math.min(x*.12,10)*10000*(cd.petrol.q/Q0.petrol)+Math.min(x*.1,8)*12000*(cd.diesel.q/Q0.diesel))*mf;}
+      rv.exc-=(Math.min(x*.12,10)*5600*(cd.petrol.q/Q0.petrol)+Math.min(x*.1,8)*11300*(cd.diesel.q/Q0.diesel))*mf;}
     let dv=(12000*so*.5-15000*Math.min(so*1.4,1))*mf;
     if(m<=2)dv*=.3;else if(m<=4)dv*=.7;rv.div+=dv;
     let gd=.124*so*mf;if(m<=2)gd*=.5;
