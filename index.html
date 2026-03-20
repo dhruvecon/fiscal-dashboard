@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iran-Israel War: Fiscal Impact on India (FY 2026-27) — S&D Model v3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#0f1419;color:#c9d1d9;font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh}
+.hdr{background:linear-gradient(135deg,#1a1f2e,#0d1117);border-bottom:1px solid #30363d;padding:16px 24px}
+.wrap{max-width:1100px;margin:0 auto}h1{font-size:18px;font-weight:700;color:#f0f6fc}
+.sub{font-size:10px;color:#8b949e;margin:3px 0 0;line-height:1.5}.main{padding:16px 24px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:12px 16px}
+.metric{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:10px 12px}
+.slbl{font-size:10px;color:#8b949e;font-family:monospace;letter-spacing:1px}
+.sval{font-size:22px;font-weight:800}.sunit{font-size:11px;color:#8b949e;font-weight:400}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;background:#30363d;border-radius:3px;outline:none;cursor:pointer;margin:7px 0 3px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:#58a6ff;border-radius:50%;cursor:pointer}
+.ticks{display:flex;justify-content:space-between;font-size:9px;color:#484f58}
+.mlbl{font-size:8px;color:#8b949e;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.mval{font-size:17px;font-weight:800}.msub{font-size:9px;color:#484f58;margin-top:1px}
+.h3{font-size:10px;font-family:monospace;color:#8b949e;margin:0 0 7px;letter-spacing:1px}
+.row{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #30363d22}
+.rlbl{font-size:10px;color:#c9d1d9}.rval{font-size:10px;font-family:monospace;font-weight:600}
+.totrow{display:flex;justify-content:space-between;padding:4px 0 0;margin-top:3px;border-top:2px solid #30363d}
+.totlbl{font-size:10px;font-weight:700;color:#f0f6fc}.totval{font-size:11px;font-family:monospace;font-weight:700}
+canvas{width:100%;height:270px}
+table{width:100%;border-collapse:collapse}th,td{padding:3px 4px;font-size:9px;text-align:center;border-bottom:1px solid #30363d33}
+th{border-bottom:2px solid #30363d;color:#8b949e;font-size:8px}td{font-family:monospace;font-weight:600;cursor:pointer}
+td:first-child,th:first-child{text-align:left}
+.qbtn{background:transparent;border:1px solid #30363d;border-radius:6px;padding:5px 6px;cursor:pointer;text-align:left;color:#c9d1d9;width:100%;font-family:inherit;font-size:9px}
+.qbtn:hover{background:#30363d33}
+.footer{background:#0d1117;border:1px solid #21262d;border-radius:10px;padding:10px 14px;font-size:8px;color:#484f58;line-height:1.7;margin-bottom:18px}
+.tag{display:inline-block;padding:1px 5px;border-radius:3px;font-size:8px;font-weight:600;margin:0 2px}
+.tag-pet{background:#1f6feb20;color:#58a6ff;border:1px solid #1f6feb40}
+.tag-gas{background:#f8514920;color:#f85149;border:1px solid #f8514940}
+</style>
+</head>
+<body>
+<div class="hdr"><div class="wrap">
+  <h1>Iran–Israel War: Fiscal Impact on India (FY 2026-27)</h1>
+  <p class="sub">Commodity S&D Model v3: 6 commodities (<span class="tag tag-pet">PETROLEUM</span> crude, diesel, petrol, LPG | <span class="tag tag-gas">GAS</span> LNG, urea) · Constant-elasticity equations solved numerically<br>
+  Buffer stock depletion · Election constraint (MCC Apr–May) · ESF tracking · Calibrated: FY23 Ukraine</p>
+</div></div>
+<div class="wrap main">
+  <div class="grid2">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span class="slbl"><span class="tag tag-pet">PET</span> OIL PRICE (INDIAN BASKET)</span>
+        <span class="sval" id="oilD">$108<span class="sunit">/bbl</span></span>
+      </div>
+      <input type="range" id="oilS" min="64" max="200" value="108">
+      <div class="ticks"><span>$64</span><span>$90</span><span>$120</span><span>$150</span><span>$200</span></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span class="slbl">WAR DURATION IN FY27</span>
+        <span class="sval" id="durD">3<span class="sunit"> months</span></span>
+      </div>
+      <input type="range" id="durS" min="1" max="12" value="3">
+      <div class="ticks"><span>1m</span><span>3m</span><span>6m</span><span>9m</span><span>12m</span></div>
+    </div>
+  </div>
+  <div class="grid5" id="metrics"></div>
+  <div class="grid2">
+    <div class="card" id="breakdown"></div>
+    <div class="card">
+      <div class="h3">FRBM GLIDE PATH (% GDP)</div>
+      <canvas id="chart" height="270"></canvas>
+      <div id="cLeg" style="font-size:9px;color:#484f58;margin-top:4px;line-height:1.5"></div>
+      <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:4px" id="qbtns"></div>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:18px">
+    <div class="h3">SCENARIO MATRIX: FD (% GDP)</div>
+    <div id="matrix"></div>
+    <div style="font-size:7px;color:#484f58;margin-top:2px">Click any cell. Green &lt;4.5% · Amber 4.5–5% · Orange 5–5.5% · Red &gt;5.5%. Gas price derived: oil×0.14+$3 premium.</div>
+  </div>
+  <div class="footer">
+    <strong style="color:#8b949e">Model v3 — Commodity S&D:</strong> Each commodity: $Q_d = A_d·P^{-ε_d}$, $Q_s = A_s·P^{ε_s} + B_m$. Demand elasticities: crude 0.10 (Kilian & Murphy 2014), diesel 0.10 (Dahl & Sterner 1991), petrol 0.15 (Labandeira et al 2017), LPG 0.08, LNG 0.15, urea 0.05. Supply shocked by (1-λ)/w^εs where λ = import_dep × hormuz_share × δ_m. Buffer B_m depletes monthly → phase effects endogenous.
+    <br><strong style="color:#8b949e">Election:</strong> MCC in effect Mar 15. Assam/Kerala Apr 9, TN Apr 23, WB Apr 23+29, counting May 4 (ECI). No retail hike months 1-2.
+    <br><strong style="color:#8b949e">Sources:</strong> PPAC, RBI DBIE, MoSPI, indiabudget.gov.in, PRS (Bhanote 2026), India Briefing, Tribune, Zerodha, Wright Research, Moneycontrol, ECI, US EIA.
+  </div>
+</div>
+<script>
+const ED={crude:.10,diesel:.10,petrol:.15,lpg:.08,lng:.15,urea:.05};
+const ES={crude:2,diesel:1.5,petrol:1.5,lpg:1,lng:.8,urea:.5};
+const Q0={crude:17.192,diesel:7.833,petrol:3.508,lpg:2.792,lng:2.158,urea:2.167};
+const P0={crude:64,diesel:78.3,petrol:71.4,lpg:500,lng:10,urea:465.5};
+const ID={crude:.879,diesel:0,petrol:0,lpg:.665,lng:.46,urea:.30};
+const HZ={crude:.30,diesel:0,petrol:0,lpg:.90,lng:.50,urea:.20};
+const RC={crude:5,diesel:0,petrol:0,lpg:30,lng:2,urea:120};
+const BF0={crude:42.4,diesel:7.8,petrol:3.5,lpg:1.4,lng:.5,urea:6.2};
+const B={gdp:39285275,exr:87,fd:1696000,ct:1231000,it:1392000,fertS:170945,foodS:228000,
+  lpgBud:11085,petGst:33160,petDiv:19310,esf:100000};
+const EL={exr:-.026,inf:.183,iip:-.124};
+
+function solveEq(c,w,delta,buf){
+  const ed=ED[c],es=ES[c],p0=P0[c],q0=Q0[c];
+  const Ad=q0*Math.pow(p0,ed),As=q0*Math.pow(p0,-es);
+  const lam=ID[c]*HZ[c]*delta;
+  const AsS=As*(1-lam)/Math.pow(w,es);
+  const b=Math.min(buf,q0*.5);
+  let lo=p0*.5,hi=p0*5;
+  for(let i=0;i<50;i++){const mid=(lo+hi)/2;const qd=Ad*Math.pow(mid,-ed);const qs=AsS*Math.pow(mid,es)+b;if(qd>qs)lo=mid;else hi=mid;}
+  const pN=(lo+hi)/2,qN=Ad*Math.pow(pN,-ed);
+  return{p:pN,q:qN,ql:q0-qN,bu:Math.min(b,Math.max(0,Ad*Math.pow(pN,-ed)-AsS*Math.pow(pN,es)))};
+}
+
+function compute(oil,dur){
+  const so=(oil-64)/64,gas=Math.max(10,oil*.14+(oil>90?3:0)),sg=(gas-10)/10;
+  const pm={crude:oil/64,diesel:1+so*1.2,petrol:1+so,lpg:1+so*.8,lng:gas/10,urea:1+sg*.6};
+  let rv={cust:0,exc:0,div:0,ct:0,it:0,gst:0},ex={fp:0,fq:0,lpg:0,omc:0,food:0,int:0,def:0,rr:0};
+  const bf={...BF0};
+  for(let m=1;m<=dur;m++){
+    const mf=1/12,dm=Math.max(.2,.9-.08*(m-1)),elec=m<=2;
+    const cd={};
+    for(const c of Object.keys(Q0)){
+      const bd=bf[c]/Math.max(1,dur-m+1);
+      const r=solveEq(c,pm[c],dm,bd);
+      bf[c]=Math.max(0,bf[c]-r.bu);cd[c]=r;
+    }
+    // Revenue
+    const cie=cd.crude;
+    rv.cust+=((cie.q*ID.crude*cie.p)/(Q0.crude*ID.crude*P0.crude)-1)*13134*mf*(1+.026*so);
+    if(!elec&&oil>85){const x=oil-85;
+      rv.exc-=(Math.min(x*.12,10)*10000*(cd.petrol.q/Q0.petrol)+Math.min(x*.1,8)*12000*(cd.diesel.q/Q0.diesel))*mf;}
+    let dv=(12000*so*.5-15000*Math.min(so*1.4,1))*mf;
+    if(m<=2)dv*=.3;else if(m<=4)dv*=.7;rv.div+=dv;
+    let gd=.124*so*mf;if(m<=2)gd*=.5;
+    rv.ct+=-B.ct*gd*.15;rv.it+=-B.it*gd*.05;
+    rv.gst+=B.petGst*(.5*so+.3*sg)*mf*.3;
+    // Expenditure
+    let fp=B.fertS*Math.min(5*sg*mf,1.5/dur)*(cd.urea.q/Q0.urea);
+    if(bf.urea>3)fp*=.3;else if(bf.urea>1)fp*=.7;ex.fp+=fp;
+    const ush=26/12*.3*dm,upr=Math.max(0,cd.urea.p-465.5);
+    ex.fq+=ush*upr*87*1e6/1e7;
+    if(oil>60){const ur=(oil-60)*10;let ls=ur*47*(cd.lpg.q/Q0.lpg)*mf-B.lpgBud*mf;ex.lpg+=Math.max(0,ls);}
+    if(elec){const pg=Math.max(0,cd.petrol.p-P0.petrol)*.3,dg=Math.max(0,cd.diesel.p-P0.diesel)*.3;
+      let oc=(pg*Q0.petrol*7.33e6+dg*Q0.diesel*7.33e6)*87/1e7*mf;if(oil>100)oc+=(oil-100)*150*mf;ex.omc+=oc;}
+    else{if(oil>100)ex.omc+=(oil-100)*80*mf;}
+    ex.food+=B.foodS*((cd.diesel.p-P0.diesel)/P0.diesel)*mf*.025;
+    const inf=EL.inf*so*10,yld=inf*25;let yi=yld;if(m<=2)yi*=.2;else if(m<=4)yi*=.6;
+    ex.int+=B.fd*.5*(yi/1e4)*mf;
+    let df=8000*so*mf;if(m<=2)df*=.5;ex.def+=df;
+    for(const c of['crude','lpg','lng']){if(RC[c]>0&&ID[c]>0)ex.rr+=cd[c].q*ID[c]*HZ[c]*dm*RC[c]*87*1e6/1e7;}
+  }
+  const tR=Object.values(rv).reduce((a,b)=>a+b,0),tE=Object.values(ex).reduce((a,b)=>a+b,0);
+  const fdD=tE-tR,nfd=B.fd+fdD,nfdg=nfd/B.gdp*100;
+  let f=nfdg,pa=.4,yr=2027;while(f>3&&yr<2060){f=Math.max(3,f-pa);pa=Math.max(.1,pa-.05);yr++;}
+  const esfM=fdD>0?B.esf/(fdD/Math.max(1,dur)):99;
+  return{so,sg,gas,rv:{cust:Math.round(rv.cust),exc:Math.round(rv.exc),div:Math.round(rv.div),ct:Math.round(rv.ct),it:Math.round(rv.it),gst:Math.round(rv.gst)},
+    tR:Math.round(tR),ex:{fp:Math.round(ex.fp),fq:Math.round(ex.fq),lpg:Math.round(ex.lpg),omc:Math.round(ex.omc),food:Math.round(ex.food),int:Math.round(ex.int),def:Math.round(ex.def),rr:Math.round(ex.rr)},
+    tE:Math.round(tE),fdD:Math.round(fdD),nfd:Math.round(nfd),nfdg:Math.round(nfdg*100)/100,
+    impUSD:Math.round(206*7.33*(oil-64)*dur/12/1000*10)/10,infl:Math.round(EL.inf*so*10*Math.min(dur/6,1)*10)/10,
+    cyr:yr,delay:yr-2031,esfM:Math.round(esfM*10)/10};
+}
+
+function gp(fd0){const p=[{yr:2027,fd:fd0}];let f=fd0,pa=.4,y=2027;while(f>3&&y<2060){f=Math.max(3,f-pa);pa=Math.max(.1,pa-.05);y++;p.push({yr:y,fd:Math.round(f*100)/100});}return p;}
+const HIST=[{yr:2020,fd:4.6},{yr:2021,fd:9.2},{yr:2022,fd:6.7},{yr:2023,fd:6.4},{yr:2024,fd:5.6},{yr:2025,fd:4.8},{yr:2026,fd:4.4}];
+const baseCY=gp(4.3),bCYr=baseCY[baseCY.length-1].yr;
+const fC=n=>{const a=Math.abs(n);return a>=1e5?`${(n/1e5).toFixed(2)}L`:a>=1e3?`${(n/1e3).toFixed(1)}K`:n.toFixed(0);};
+const fS=n=>`${n>=0?"+":""}₹${fC(n)} cr`;
+const sev=v=>v<4.6?{c:"#059669",l:"Manageable"}:v<5.2?{c:"#d97706",l:"Stressed"}:v<6?{c:"#dc2626",l:"Severe"}:{c:"#991b1b",l:"Critical"};
+const cc=v=>v<4.5?"#3fb950":v<5?"#d29922":v<5.5?"#f97316":"#f85149";
+
+function drawChart(cv,h,tP,wP,sc){const ctx=cv.getContext('2d');const W=cv.width=cv.offsetWidth*2,H=cv.height=cv.offsetHeight*2;
+ctx.clearRect(0,0,W,H);const p={t:18,r:28,b:45,l:48},cw=W-p.l-p.r,ch=H-p.t-p.b;
+const all=[...h,...tP,...wP],mnY=Math.min(...all.map(d=>d.yr)),mxY=Math.max(...all.map(d=>d.yr));
+const x=yr=>p.l+(yr-mnY)/(mxY-mnY)*cw,y=fd=>p.t+(10-fd)/8*ch;
+ctx.strokeStyle='#21262d';ctx.lineWidth=1;for(let f=2;f<=10;f++){ctx.beginPath();ctx.moveTo(p.l,y(f));ctx.lineTo(W-p.r,y(f));ctx.stroke();}
+ctx.strokeStyle='#3fb950';ctx.setLineDash([8,4]);ctx.beginPath();ctx.moveTo(p.l,y(3));ctx.lineTo(W-p.r,y(3));ctx.stroke();ctx.setLineDash([]);
+ctx.fillStyle='#8b949e';ctx.font='14px sans-serif';ctx.textAlign='right';for(let f=2;f<=10;f+=2)ctx.fillText(f+'%',p.l-6,y(f)+4);
+ctx.textAlign='center';const st=mxY-mnY>15?3:mxY-mnY>10?2:1;
+for(let yr=mnY;yr<=mxY;yr+=st){ctx.save();ctx.translate(x(yr),H-p.b+24);ctx.rotate(-Math.PI/4);ctx.fillText('FY'+(yr%100),0,0);ctx.restore();}
+ctx.strokeStyle='#58a6ff';ctx.lineWidth=2.5;ctx.beginPath();h.forEach((d,i)=>{i?ctx.lineTo(x(d.yr),y(d.fd)):ctx.moveTo(x(d.yr),y(d.fd));});
+tP.forEach(d=>ctx.lineTo(x(d.yr),y(d.fd)));ctx.stroke();
+[...h,...tP].forEach(d=>{ctx.fillStyle='#58a6ff';ctx.beginPath();ctx.arc(x(d.yr),y(d.fd),3.5,0,Math.PI*2);ctx.fill();});
+ctx.strokeStyle=sc;ctx.lineWidth=2.5;ctx.setLineDash([7,3]);ctx.beginPath();wP.forEach((d,i)=>{i?ctx.lineTo(x(d.yr),y(d.fd)):ctx.moveTo(x(d.yr),y(d.fd));});ctx.stroke();ctx.setLineDash([]);
+wP.forEach(d=>{ctx.fillStyle=sc;ctx.beginPath();ctx.arc(x(d.yr),y(d.fd),3.5,0,Math.PI*2);ctx.fill();});}
+
+let oil=108,dur=3;
+function update(){
+  const r=compute(oil,dur),s=sev(r.nfdg),wp=gp(r.nfdg),wCY=wp[wp.length-1].yr,dl=wCY-bCYr;
+  document.getElementById('oilD').innerHTML=`$${oil}<span class="sunit">/bbl</span>`;
+  document.getElementById('oilD').style.color=oil>120?'#f85149':oil>85?'#d29922':'#3fb950';
+  document.getElementById('durD').innerHTML=`${dur}<span class="sunit"> months</span>`;
+  document.getElementById('durD').style.color=dur>6?'#f85149':dur>3?'#d29922':'#3fb950';
+  const eP=Math.min(100,Math.max(0,(1-r.fdD/1e5)*100)),eC=eP>50?'#3fb950':eP>20?'#d29922':'#f85149';
+  let mh='';
+  [{lb:"Fiscal Deficit",v:`${r.nfdg.toFixed(2)}%`,su:`Δ${fS(r.fdD)}`,c:s.c},
+   {lb:"Import Bill",v:`+$${r.impUSD}bn`,su:`Oil +${(r.so*100).toFixed(0)}%, Gas +${(r.sg*100).toFixed(0)}%`,c:"#58a6ff"},
+   {lb:"Inflation",v:`+${r.infl}pp`,su:"CPI (econometric)",c:"#d29922"},
+   {lb:"FRBM Target",v:dl>0?`FY${wCY%100}`:"On track",su:dl>0?`+${dl}yr delay`:"No delay",c:dl>2?'#f85149':dl>0?'#d29922':'#3fb950'},
+   {lb:"ESF Cover",v:`${r.esfM}m`,su:`₹1L cr buffer`,c:s.c}
+  ].forEach(m=>{mh+=`<div class="metric" style="border-top:3px solid ${m.c}"><div class="mlbl">${m.lb}</div><div class="mval" style="color:${m.c}">${m.v}</div><div class="msub">${m.su}</div></div>`;});
+  document.getElementById('metrics').innerHTML=mh;
+
+  const ft=r.ex.fp+r.ex.fq;
+  let bh=`<div class="h3"><span class="tag tag-pet">PETROLEUM</span> REVENUE</div>`;
+  [["Customs (ad valorem)",r.rv.cust],["Excise (election constraint m1-2)",r.rv.exc],["Dividends (net)",r.rv.div],["Corp tax (LP growth drag)",r.rv.ct],["Income tax",r.rv.it]].forEach(([n,v])=>{
+    const c=v>0?'#3fb950':v<-100?'#f85149':'#d29922';bh+=`<div class="row"><span class="rlbl">${n}</span><span class="rval" style="color:${c}">${fS(v)}</span></div>`;});
+  bh+=`<div class="row"><span class="rlbl"><span class="tag tag-gas">GAS</span> GST (gas+oil)</span><span class="rval" style="color:#3fb950">${fS(r.rv.gst)}</span></div>`;
+  bh+=`<div class="totrow"><span class="totlbl">Net Revenue Δ</span><span class="totval" style="color:${r.tR>0?'#3fb950':'#f85149'}">${fS(r.tR)}</span></div>`;
+
+  bh+=`<div class="h3" style="margin-top:10px"><span class="tag tag-gas">GAS</span> EXPENDITURE</div>`;
+  [["Fertiliser (price: gas→urea cost)",r.ex.fp],["Fertiliser (qty: 30% gas cut→imports)",r.ex.fq]].forEach(([n,v])=>{
+    bh+=`<div class="row"><span class="rlbl">${n}</span><span class="rval" style="color:${v>5000?'#f85149':v>500?'#d29922':'#8b949e'}">${fS(v)}</span></div>`;});
+  bh+=`<div class="h3" style="margin-top:8px"><span class="tag tag-pet">PETROLEUM</span> EXPENDITURE</div>`;
+  [["LPG subsidy (UR×47cr cyl)",r.ex.lpg],["OMC compensation (election→full gap)",r.ex.omc],["Rerouting (Cape: crude+LPG+LNG)",r.ex.rr],["Food (diesel transport)",r.ex.food],["Interest (oil→CPI→yield)",r.ex.int],["Defence fuel",r.ex.def]].forEach(([n,v])=>{
+    bh+=`<div class="row"><span class="rlbl">${n}</span><span class="rval" style="color:${v>5000?'#f85149':v>500?'#d29922':'#8b949e'}">${fS(v)}</span></div>`;});
+  bh+=`<div class="totrow"><span class="totlbl">Net Expenditure Δ</span><span class="totval" style="color:#f85149">${fS(r.tE)}</span></div>`;
+  bh+=`<div style="margin-top:8px;padding:6px 9px;border-radius:7px;background:${s.c}12;border:1px solid ${s.c}30">
+    <div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:700;color:#f0f6fc">Fiscal Deficit Δ</span>
+    <span style="font-size:13px;font-family:monospace;font-weight:800;color:${s.c}">${fS(r.fdD)}</span></div>
+    <div style="font-size:9px;color:#8b949e;margin-top:1px">₹16.96L → ₹${(r.nfd/1e5).toFixed(2)}L cr (${r.nfdg.toFixed(2)}% GDP)</div></div>`;
+  document.getElementById('breakdown').innerHTML=bh;
+
+  drawChart(document.getElementById('chart'),HIST,baseCY,wp,s.c);
+  document.getElementById('cLeg').innerHTML=`<span style="color:#58a6ff">━━</span> Target (FY${bCYr%100}) &nbsp;<span style="color:${s.c}">╌ ╌</span> War (FY${wCY%100}) &nbsp;<span style="color:#3fb950">┈┈</span> 3% mandate`+(dl>0?`<div style="color:${s.c};font-weight:700;margin-top:2px">Delays FRBM by ${dl}yr.</div>`:'');
+
+  let qh='';
+  [["Moderate ($110, 3m)",110,3],["Mod-Ext ($110, 6m)",110,6],["Severe ($130, 6m)",130,6],["Extreme ($150, 12m)",150,12]].forEach(([nm,o,d])=>{
+    const t=compute(o,d);qh+=`<button class="qbtn" onclick="oil=${o};dur=${d};document.getElementById('oilS').value=${o};document.getElementById('durS').value=${d};update()">
+    <span style="font-weight:600">${nm}</span> → <span style="color:${cc(t.nfdg)};font-weight:700">${t.nfdg.toFixed(2)}%</span> <span style="color:#484f58">+${t.delay}yr</span></button>`;});
+  document.getElementById('qbtns').innerHTML=qh;
+
+  const prices=[75,90,100,110,120,130,150,180],durs=[1,2,3,6,9,12];
+  let mt='<table><thead><tr><th>Dur↓/Oil→</th>';prices.forEach(p=>{mt+=`<th>${p}</th>`;});mt+='</tr></thead><tbody>';
+  durs.forEach(d=>{mt+=`<tr><td style="font-weight:600;color:#c9d1d9">${d}m</td>`;
+    prices.forEach(p=>{const t=compute(p,d),dl2=gp(t.nfdg).pop().yr-bCYr;
+      mt+=`<td onclick="oil=${p};dur=${d};document.getElementById('oilS').value=${p};document.getElementById('durS').value=${d};update()" style="color:${cc(t.nfdg)}">${t.nfdg.toFixed(2)}%${dl2>0?'<div style=\"font-size:6px;color:#484f58\">+'+dl2+'yr</div>':''}</td>`;});
+    mt+='</tr>';});mt+='</tbody></table>';
+  document.getElementById('matrix').innerHTML=mt;
+}
+document.getElementById('oilS').addEventListener('input',e=>{oil=+e.target.value;update();});
+document.getElementById('durS').addEventListener('input',e=>{dur=+e.target.value;update();});
+window.addEventListener('resize',update);update();
+</script>
+</body>
+</html>
