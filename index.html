@@ -3,45 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Iran-Israel War: Fiscal Impact on India (FY 2026-27) — S&D Model</title>
+<title>Iran-Israel War: Fiscal Impact on India (FY 2026-27) — ICPP, Ashoka University</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{background:#0f1419;color:#c9d1d9;font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh}
-.hdr{background:linear-gradient(135deg,#1a1f2e,#0d1117);border-bottom:1px solid #30363d;padding:16px 24px}
-.wrap{max-width:1100px;margin:0 auto}h1{font-size:18px;font-weight:700;color:#f0f6fc}
-.sub{font-size:10px;color:#8b949e;margin:3px 0 0;line-height:1.5}.main{padding:16px 24px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5f7fa;color:#2d3748;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh}
+.hdr{background:#0d1b2a;padding:18px 24px;border-bottom:3px solid #1b9e8c}
+.wrap{max-width:1100px;margin:0 auto}
+h1{font-size:18px;font-weight:700;color:#ffffff;letter-spacing:0.2px}
+.sub{font-size:10px;color:#94a3b8;margin:4px 0 0;line-height:1.6}
+.main{padding:18px 24px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
 .grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px}
-.card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:12px 16px}
-.metric{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:10px 12px}
-.slbl{font-size:10px;color:#8b949e;font-family:monospace;letter-spacing:1px}
-.sval{font-size:22px;font-weight:800}.sunit{font-size:11px;color:#8b949e;font-weight:400}
-input[type=range]{-webkit-appearance:none;width:100%;height:6px;background:#30363d;border-radius:3px;outline:none;cursor:pointer;margin:7px 0 3px}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:#58a6ff;border-radius:50%;cursor:pointer}
-.ticks{display:flex;justify-content:space-between;font-size:9px;color:#484f58}
-.mlbl{font-size:8px;color:#8b949e;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
-.mval{font-size:17px;font-weight:800}.msub{font-size:9px;color:#484f58;margin-top:1px}
-.h3{font-size:10px;font-family:monospace;color:#8b949e;margin:0 0 7px;letter-spacing:1px}
-.row{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #30363d22}
-.rlbl{font-size:10px;color:#c9d1d9}.rval{font-size:10px;font-family:monospace;font-weight:600}
-.totrow{display:flex;justify-content:space-between;padding:4px 0 0;margin-top:3px;border-top:2px solid #30363d}
-.totlbl{font-size:10px;font-weight:700;color:#f0f6fc}.totval{font-size:11px;font-family:monospace;font-weight:700}
+.card{background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;padding:13px 16px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+.metric{background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+.slbl{font-size:10px;color:#64748b;font-family:monospace;letter-spacing:1px}
+.sval{font-size:22px;font-weight:800}.sunit{font-size:11px;color:#94a3b8;font-weight:400}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;background:#cbd5e1;border-radius:3px;outline:none;cursor:pointer;margin:8px 0 4px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:#1b9e8c;border-radius:50%;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.2)}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;background:#1b9e8c;border-radius:50%;cursor:pointer;border:none}
+.ticks{display:flex;justify-content:space-between;font-size:9px;color:#94a3b8}
+.mlbl{font-size:8px;color:#64748b;text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px}
+.mval{font-size:17px;font-weight:800}.msub{font-size:9px;color:#94a3b8;margin-top:1px}
+.h3{font-size:10px;font-family:monospace;color:#475569;margin:0 0 7px;letter-spacing:1px;text-transform:uppercase}
+.row{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #f1f5f9}
+.rlbl{font-size:10px;color:#334155}.rval{font-size:10px;font-family:monospace;font-weight:600}
+.totrow{display:flex;justify-content:space-between;padding:5px 0 0;margin-top:3px;border-top:2px solid #e2e8f0}
+.totlbl{font-size:10px;font-weight:700;color:#0f172a}.totval{font-size:11px;font-family:monospace;font-weight:700}
 canvas{width:100%;height:270px}
-table{width:100%;border-collapse:collapse}th,td{padding:3px 4px;font-size:9px;text-align:center;border-bottom:1px solid #30363d33}
-th{border-bottom:2px solid #30363d;color:#8b949e;font-size:8px}td{font-family:monospace;font-weight:600;cursor:pointer}
+table{width:100%;border-collapse:collapse}
+th,td{padding:3px 5px;font-size:9px;text-align:center;border-bottom:1px solid #f1f5f9}
+th{border-bottom:2px solid #cbd5e1;color:#475569;font-size:8px;background:#f8fafc}
+td{font-family:monospace;font-weight:600;cursor:pointer}
 td:first-child,th:first-child{text-align:left}
-.qbtn{background:transparent;border:1px solid #30363d;border-radius:6px;padding:5px 6px;cursor:pointer;text-align:left;color:#c9d1d9;width:100%;font-family:inherit;font-size:9px}
-.qbtn:hover{background:#30363d33}
-.footer{background:#0d1117;border:1px solid #21262d;border-radius:10px;padding:10px 14px;font-size:8px;color:#484f58;line-height:1.7;margin-bottom:18px}
+td:hover{background:#f0fdfa}
+.qbtn{background:#ffffff;border:1px solid #e2e8f0;border-radius:6px;padding:5px 7px;cursor:pointer;text-align:left;color:#334155;width:100%;font-family:inherit;font-size:9px;transition:all 0.15s}
+.qbtn:hover{background:#f0fdfa;border-color:#1b9e8c}
+.footer{background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;padding:11px 15px;font-size:8px;color:#94a3b8;line-height:1.8;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
 .tag{display:inline-block;padding:1px 5px;border-radius:3px;font-size:8px;font-weight:600;margin:0 2px}
-.tag-pet{background:#1f6feb20;color:#58a6ff;border:1px solid #1f6feb40}
-.tag-gas{background:#f8514920;color:#f85149;border:1px solid #f8514940}
+.tag-pet{background:#e0f2fe;color:#0369a1;border:1px solid #bae6fd}
+.tag-gas{background:#fef2f2;color:#b91c1c;border:1px solid #fecaca}
+.icpp-bar{height:3px;background:linear-gradient(90deg,#1b9e8c,#0d1b2a);margin-bottom:0}
 </style>
 </head>
 <body>
+<div class="icpp-bar"></div>
 <div class="hdr"><div class="wrap">
-  <h1>Iran–Israel War: Fiscal Impact on India (FY 2026-27)</h1>
-  <p class="sub">Commodity S&D Model: 6 commodities (<span class="tag tag-pet">PETROLEUM</span> crude, diesel, petrol, LPG | <span class="tag tag-gas">GAS</span> LNG, urea) · Constant-elasticity equations solved numerically<br>
-  Buffer stock depletion · Election constraint (MCC Apr–May) · ESF tracking · Calibrated: FY23 Ukraine</p>
+  <div style="display:flex;align-items:center;gap:12px">
+    <div>
+      <h1>Iran–Israel War: Fiscal Impact on India (FY 2026-27)</h1>
+      <p class="sub">Commodity S&D Model: 6 commodities (<span class="tag tag-pet">PETROLEUM</span> crude, diesel, petrol, LPG | <span class="tag tag-gas">GAS</span> LNG, urea) · Constant-elasticity equations solved numerically<br>
+      Buffer stock depletion · Election constraint (MCC Apr–May) · ESF tracking · Calibrated: FY23 Ukraine · <span style="color:#1b9e8c">Isaac Centre for Public Policy, Ashoka University</span></p>
+    </div>
+  </div>
 </div></div>
 <div class="wrap main">
   <div class="grid2">
@@ -66,21 +79,21 @@ td:first-child,th:first-child{text-align:left}
   <div class="grid2">
     <div class="card" id="breakdown"></div>
     <div class="card">
-      <div class="h3">FRBM GLIDE PATH (% GDP)</div>
+      <div class="h3">FRBM Glide Path (% GDP)</div>
       <canvas id="chart" height="270"></canvas>
-      <div id="cLeg" style="font-size:9px;color:#484f58;margin-top:4px;line-height:1.5"></div>
-      <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:4px" id="qbtns"></div>
+      <div id="cLeg" style="font-size:9px;color:#64748b;margin-top:5px;line-height:1.5"></div>
+      <div style="margin-top:9px;display:grid;grid-template-columns:1fr 1fr;gap:5px" id="qbtns"></div>
     </div>
   </div>
   <div class="card" style="margin-bottom:18px">
-    <div class="h3">SCENARIO MATRIX: FD (% GDP)</div>
+    <div class="h3">Scenario Matrix: Fiscal Deficit (% GDP)</div>
     <div id="matrix"></div>
-    <div style="font-size:7px;color:#484f58;margin-top:2px">Click any cell. Green &lt;4.5% · Amber 4.5–5% · Orange 5–5.5% · Red &gt;5.5%. Gas price derived: oil×0.14+$3 premium.</div>
+    <div style="font-size:7px;color:#94a3b8;margin-top:3px">Click any cell. <span style="color:#059669">●</span> &lt;4.5% · <span style="color:#d97706">●</span> 4.5–5% · <span style="color:#ea580c">●</span> 5–5.5% · <span style="color:#dc2626">●</span> &gt;5.5%. Gas price derived: oil×0.14+$3 premium.</div>
   </div>
   <div class="footer">
-    <strong style="color:#8b949e">Model — Commodity S&D:</strong> Each commodity: $Q_d = A_d·P^{-ε_d}$, $Q_s = A_s·P^{ε_s} + B_m$. Demand elasticities: crude 0.10 (Kilian & Murphy 2014), diesel 0.10 (Dahl & Sterner 1991), petrol 0.15 (Labandeira et al 2017), LPG 0.08, LNG 0.15, urea 0.05. Supply shocked by (1-λ)/w^εs where λ = import_dep × hormuz_share × δ_m. Buffer B_m depletes monthly → phase effects endogenous.
-    <br><strong style="color:#8b949e">Election:</strong> MCC in effect Mar 15. Assam/Kerala Apr 9, TN Apr 23, WB Apr 23+29, counting May 4 (ECI). No retail hike months 1-2.
-    <br><strong style="color:#8b949e">Sources:</strong> PPAC, RBI DBIE, MoSPI, indiabudget.gov.in, PRS (Bhanote 2026), India Briefing, Tribune, Zerodha, Wright Research, Moneycontrol, ECI, US EIA.
+    <strong style="color:#475569">Model v3 — Commodity S&D:</strong> Each commodity: Q<sub>d</sub> = A<sub>d</sub>·P<sup>-ε<sub>d</sub></sup>, Q<sub>s</sub> = A<sub>s</sub>·P<sup>ε<sub>s</sub></sup> + B<sub>m</sub>. Demand elasticities: crude 0.10 (Kilian & Murphy 2014), diesel 0.10 (Dahl & Sterner 1991), petrol 0.15 (Labandeira et al 2017), LPG 0.08, LNG 0.15 (IEA 2025), urea 0.05. Supply shocked by (1−λ)/w<sup>ε<sub>s</sub></sup> where λ = import_dep × hormuz_share × δ<sub>m</sub>.
+    <br><strong style="color:#475569">Election:</strong> MCC in effect Mar 15. Assam/Kerala Apr 9, TN Apr 23, WB Apr 23+29, counting May 4 (ECI). No retail hike months 1–2.
+    <br><strong style="color:#475569">Sources:</strong> PPAC, RBI DBIE, MoSPI, indiabudget.gov.in, PRS (Bhanote 2026), India Briefing, Tribune, Zerodha, Wright Research, ECI, US EIA.
   </div>
 </div>
 <script>
@@ -121,9 +134,9 @@ function compute(oil,dur){
       const r=solveEq(c,pm[c],dm,bd);
       bf[c]=Math.max(0,bf[c]-r.bu);cd[c]=r;
     }
-    // Revenue
     const cie=cd.crude;
-    rv.cust+=((cie.q*ID.crude*cie.p)/(Q0.crude*ID.crude*P0.crude)-1)*13134*mf*(1+.026*so);
+    const qpR=(cie.q*cie.p)/(Q0.crude*P0.crude)-1;
+    rv.cust+=qpR*13134*mf*(1+.026*so);
     if(!elec&&oil>85){const x=oil-85;
       rv.exc-=(Math.min(x*.12,10)*10000*(cd.petrol.q/Q0.petrol)+Math.min(x*.1,8)*12000*(cd.diesel.q/Q0.diesel))*mf;}
     let dv=(12000*so*.5-15000*Math.min(so*1.4,1))*mf;
@@ -131,7 +144,6 @@ function compute(oil,dur){
     let gd=.124*so*mf;if(m<=2)gd*=.5;
     rv.ct+=-B.ct*gd*.15;rv.it+=-B.it*gd*.05;
     rv.gst+=B.petGst*(.5*so+.3*sg)*mf*.3;
-    // Expenditure
     let fp=B.fertS*Math.min(5*sg*mf,1.5/dur)*(cd.urea.q/Q0.urea);
     if(bf.urea>3)fp*=.3;else if(bf.urea>1)fp*=.7;ex.fp+=fp;
     const ush=26/12*.3*dm,upr=Math.max(0,cd.urea.p-465.5);
@@ -163,74 +175,85 @@ const baseCY=gp(4.3),bCYr=baseCY[baseCY.length-1].yr;
 const fC=n=>{const a=Math.abs(n);return a>=1e5?`${(n/1e5).toFixed(2)}L`:a>=1e3?`${(n/1e3).toFixed(1)}K`:n.toFixed(0);};
 const fS=n=>`${n>=0?"+":""}₹${fC(n)} cr`;
 const sev=v=>v<4.6?{c:"#059669",l:"Manageable"}:v<5.2?{c:"#d97706",l:"Stressed"}:v<6?{c:"#dc2626",l:"Severe"}:{c:"#991b1b",l:"Critical"};
-const cc=v=>v<4.5?"#3fb950":v<5?"#d29922":v<5.5?"#f97316":"#f85149";
+const cc=v=>v<4.5?"#059669":v<5?"#d97706":v<5.5?"#ea580c":"#dc2626";
 
-function drawChart(cv,h,tP,wP,sc){const ctx=cv.getContext('2d');const W=cv.width=cv.offsetWidth*2,H=cv.height=cv.offsetHeight*2;
-ctx.clearRect(0,0,W,H);const p={t:18,r:28,b:45,l:48},cw=W-p.l-p.r,ch=H-p.t-p.b;
-const all=[...h,...tP,...wP],mnY=Math.min(...all.map(d=>d.yr)),mxY=Math.max(...all.map(d=>d.yr));
-const x=yr=>p.l+(yr-mnY)/(mxY-mnY)*cw,y=fd=>p.t+(10-fd)/8*ch;
-ctx.strokeStyle='#21262d';ctx.lineWidth=1;for(let f=2;f<=10;f++){ctx.beginPath();ctx.moveTo(p.l,y(f));ctx.lineTo(W-p.r,y(f));ctx.stroke();}
-ctx.strokeStyle='#3fb950';ctx.setLineDash([8,4]);ctx.beginPath();ctx.moveTo(p.l,y(3));ctx.lineTo(W-p.r,y(3));ctx.stroke();ctx.setLineDash([]);
-ctx.fillStyle='#8b949e';ctx.font='14px sans-serif';ctx.textAlign='right';for(let f=2;f<=10;f+=2)ctx.fillText(f+'%',p.l-6,y(f)+4);
-ctx.textAlign='center';const st=mxY-mnY>15?3:mxY-mnY>10?2:1;
-for(let yr=mnY;yr<=mxY;yr+=st){ctx.save();ctx.translate(x(yr),H-p.b+24);ctx.rotate(-Math.PI/4);ctx.fillText('FY'+(yr%100),0,0);ctx.restore();}
-ctx.strokeStyle='#58a6ff';ctx.lineWidth=2.5;ctx.beginPath();h.forEach((d,i)=>{i?ctx.lineTo(x(d.yr),y(d.fd)):ctx.moveTo(x(d.yr),y(d.fd));});
-tP.forEach(d=>ctx.lineTo(x(d.yr),y(d.fd)));ctx.stroke();
-[...h,...tP].forEach(d=>{ctx.fillStyle='#58a6ff';ctx.beginPath();ctx.arc(x(d.yr),y(d.fd),3.5,0,Math.PI*2);ctx.fill();});
-ctx.strokeStyle=sc;ctx.lineWidth=2.5;ctx.setLineDash([7,3]);ctx.beginPath();wP.forEach((d,i)=>{i?ctx.lineTo(x(d.yr),y(d.fd)):ctx.moveTo(x(d.yr),y(d.fd));});ctx.stroke();ctx.setLineDash([]);
-wP.forEach(d=>{ctx.fillStyle=sc;ctx.beginPath();ctx.arc(x(d.yr),y(d.fd),3.5,0,Math.PI*2);ctx.fill();});}
+function drawChart(cv,h,tP,wP,sc){
+  const ctx=cv.getContext('2d');const W=cv.width=cv.offsetWidth*2,H=cv.height=cv.offsetHeight*2;
+  ctx.clearRect(0,0,W,H);const p={t:18,r:28,b:45,l:48},cw=W-p.l-p.r,ch=H-p.t-p.b;
+  const all=[...h,...tP,...wP],mnY=Math.min(...all.map(d=>d.yr)),mxY=Math.max(...all.map(d=>d.yr));
+  const x=yr=>p.l+(yr-mnY)/(mxY-mnY)*cw,y=fd=>p.t+(10-fd)/8*ch;
+  // Grid
+  ctx.strokeStyle='#e2e8f0';ctx.lineWidth=1;
+  for(let f=2;f<=10;f++){ctx.beginPath();ctx.moveTo(p.l,y(f));ctx.lineTo(W-p.r,y(f));ctx.stroke();}
+  // 3% target
+  ctx.strokeStyle='#059669';ctx.setLineDash([8,4]);ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.moveTo(p.l,y(3));ctx.lineTo(W-p.r,y(3));ctx.stroke();ctx.setLineDash([]);
+  // Axis labels
+  ctx.fillStyle='#64748b';ctx.font='14px system-ui';ctx.textAlign='right';
+  for(let f=2;f<=10;f+=2)ctx.fillText(f+'%',p.l-6,y(f)+4);
+  ctx.textAlign='center';const st=mxY-mnY>15?3:mxY-mnY>10?2:1;
+  for(let yr=mnY;yr<=mxY;yr+=st){ctx.save();ctx.translate(x(yr),H-p.b+24);ctx.rotate(-Math.PI/4);ctx.fillText('FY'+(yr%100),0,0);ctx.restore();}
+  // Target line (solid teal)
+  ctx.strokeStyle='#0d1b2a';ctx.lineWidth=2.5;ctx.beginPath();
+  h.forEach((d,i)=>{i?ctx.lineTo(x(d.yr),y(d.fd)):ctx.moveTo(x(d.yr),y(d.fd));});
+  tP.forEach(d=>ctx.lineTo(x(d.yr),y(d.fd)));ctx.stroke();
+  [...h,...tP].forEach(d=>{ctx.fillStyle='#0d1b2a';ctx.beginPath();ctx.arc(x(d.yr),y(d.fd),3.5,0,Math.PI*2);ctx.fill();});
+  // War line (dashed, scenario color)
+  ctx.strokeStyle=sc;ctx.lineWidth=2.5;ctx.setLineDash([7,4]);ctx.beginPath();
+  wP.forEach((d,i)=>{i?ctx.lineTo(x(d.yr),y(d.fd)):ctx.moveTo(x(d.yr),y(d.fd));});ctx.stroke();ctx.setLineDash([]);
+  wP.forEach(d=>{ctx.fillStyle=sc;ctx.beginPath();ctx.arc(x(d.yr),y(d.fd),3.5,0,Math.PI*2);ctx.fill();});
+}
 
 let oil=108,dur=3;
 function update(){
   const r=compute(oil,dur),s=sev(r.nfdg),wp=gp(r.nfdg),wCY=wp[wp.length-1].yr,dl=wCY-bCYr;
   document.getElementById('oilD').innerHTML=`$${oil}<span class="sunit">/bbl</span>`;
-  document.getElementById('oilD').style.color=oil>120?'#f85149':oil>85?'#d29922':'#3fb950';
+  document.getElementById('oilD').style.color=oil>120?'#dc2626':oil>85?'#d97706':'#059669';
   document.getElementById('durD').innerHTML=`${dur}<span class="sunit"> months</span>`;
-  document.getElementById('durD').style.color=dur>6?'#f85149':dur>3?'#d29922':'#3fb950';
-  const eP=Math.min(100,Math.max(0,(1-r.fdD/1e5)*100)),eC=eP>50?'#3fb950':eP>20?'#d29922':'#f85149';
+  document.getElementById('durD').style.color=dur>6?'#dc2626':dur>3?'#d97706':'#059669';
+
   let mh='';
   [{lb:"Fiscal Deficit",v:`${r.nfdg.toFixed(2)}%`,su:`Δ${fS(r.fdD)}`,c:s.c},
-   {lb:"Import Bill",v:`+$${r.impUSD}bn`,su:`Oil +${(r.so*100).toFixed(0)}%, Gas +${(r.sg*100).toFixed(0)}%`,c:"#58a6ff"},
-   {lb:"Inflation",v:`+${r.infl}pp`,su:"CPI (econometric)",c:"#d29922"},
-   {lb:"FRBM Target",v:dl>0?`FY${wCY%100}`:"On track",su:dl>0?`+${dl}yr delay`:"No delay",c:dl>2?'#f85149':dl>0?'#d29922':'#3fb950'},
+   {lb:"Import Bill",v:`+$${r.impUSD}bn`,su:`Oil +${(r.so*100).toFixed(0)}%, Gas +${(r.sg*100).toFixed(0)}%`,c:"#0369a1"},
+   {lb:"Inflation",v:`+${r.infl}pp`,su:"CPI (econometric)",c:"#d97706"},
+   {lb:"FRBM Target",v:dl>0?`FY${wCY%100}`:"On track",su:dl>0?`+${dl}yr delay`:"No delay",c:dl>2?'#dc2626':dl>0?'#d97706':'#059669'},
    {lb:"ESF Cover",v:`${r.esfM}m`,su:`₹1L cr buffer`,c:s.c}
   ].forEach(m=>{mh+=`<div class="metric" style="border-top:3px solid ${m.c}"><div class="mlbl">${m.lb}</div><div class="mval" style="color:${m.c}">${m.v}</div><div class="msub">${m.su}</div></div>`;});
   document.getElementById('metrics').innerHTML=mh;
 
-  const ft=r.ex.fp+r.ex.fq;
-  let bh=`<div class="h3"><span class="tag tag-pet">PETROLEUM</span> REVENUE</div>`;
-  [["Customs (ad valorem)",r.rv.cust],["Excise (election constraint m1-2)",r.rv.exc],["Dividends (net)",r.rv.div],["Corp tax (LP growth drag)",r.rv.ct],["Income tax",r.rv.it]].forEach(([n,v])=>{
-    const c=v>0?'#3fb950':v<-100?'#f85149':'#d29922';bh+=`<div class="row"><span class="rlbl">${n}</span><span class="rval" style="color:${c}">${fS(v)}</span></div>`;});
-  bh+=`<div class="row"><span class="rlbl"><span class="tag tag-gas">GAS</span> GST (gas+oil)</span><span class="rval" style="color:#3fb950">${fS(r.rv.gst)}</span></div>`;
-  bh+=`<div class="totrow"><span class="totlbl">Net Revenue Δ</span><span class="totval" style="color:${r.tR>0?'#3fb950':'#f85149'}">${fS(r.tR)}</span></div>`;
+  let bh=`<div class="h3"><span class="tag tag-pet">Petroleum</span> Revenue</div>`;
+  [["Customs (ad valorem)",r.rv.cust],["Excise (election constraint m1–2)",r.rv.exc],["Dividends (net)",r.rv.div],["Corp tax (LP growth drag)",r.rv.ct],["Income tax",r.rv.it]].forEach(([n,v])=>{
+    const c=v>0?'#059669':v<-100?'#dc2626':'#d97706';bh+=`<div class="row"><span class="rlbl">${n}</span><span class="rval" style="color:${c}">${fS(v)}</span></div>`;});
+  bh+=`<div class="row"><span class="rlbl"><span class="tag tag-gas">Gas</span> GST (gas+oil)</span><span class="rval" style="color:#059669">${fS(r.rv.gst)}</span></div>`;
+  bh+=`<div class="totrow"><span class="totlbl">Net Revenue Δ</span><span class="totval" style="color:${r.tR>0?'#059669':'#dc2626'}">${fS(r.tR)}</span></div>`;
 
-  bh+=`<div class="h3" style="margin-top:10px"><span class="tag tag-gas">GAS</span> EXPENDITURE</div>`;
+  bh+=`<div class="h3" style="margin-top:11px"><span class="tag tag-gas">Gas</span> Expenditure</div>`;
   [["Fertiliser (price: gas→urea cost)",r.ex.fp],["Fertiliser (qty: 30% gas cut→imports)",r.ex.fq]].forEach(([n,v])=>{
-    bh+=`<div class="row"><span class="rlbl">${n}</span><span class="rval" style="color:${v>5000?'#f85149':v>500?'#d29922':'#8b949e'}">${fS(v)}</span></div>`;});
-  bh+=`<div class="h3" style="margin-top:8px"><span class="tag tag-pet">PETROLEUM</span> EXPENDITURE</div>`;
-  [["LPG subsidy (UR×47cr cyl)",r.ex.lpg],["OMC compensation (election→full gap)",r.ex.omc],["Rerouting (Cape: crude+LPG+LNG)",r.ex.rr],["Food (diesel transport)",r.ex.food],["Interest (oil→CPI→yield)",r.ex.int],["Defence fuel",r.ex.def]].forEach(([n,v])=>{
-    bh+=`<div class="row"><span class="rlbl">${n}</span><span class="rval" style="color:${v>5000?'#f85149':v>500?'#d29922':'#8b949e'}">${fS(v)}</span></div>`;});
-  bh+=`<div class="totrow"><span class="totlbl">Net Expenditure Δ</span><span class="totval" style="color:#f85149">${fS(r.tE)}</span></div>`;
-  bh+=`<div style="margin-top:8px;padding:6px 9px;border-radius:7px;background:${s.c}12;border:1px solid ${s.c}30">
-    <div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:700;color:#f0f6fc">Fiscal Deficit Δ</span>
-    <span style="font-size:13px;font-family:monospace;font-weight:800;color:${s.c}">${fS(r.fdD)}</span></div>
-    <div style="font-size:9px;color:#8b949e;margin-top:1px">₹16.96L → ₹${(r.nfd/1e5).toFixed(2)}L cr (${r.nfdg.toFixed(2)}% GDP)</div></div>`;
+    bh+=`<div class="row"><span class="rlbl">${n}</span><span class="rval" style="color:${v>5000?'#dc2626':v>500?'#d97706':'#64748b'}">${fS(v)}</span></div>`;});
+  bh+=`<div class="h3" style="margin-top:9px"><span class="tag tag-pet">Petroleum</span> Expenditure</div>`;
+  [["LPG subsidy (UR × 47 cr cyl)",r.ex.lpg],["OMC compensation (election→full gap)",r.ex.omc],["Rerouting (Cape: crude+LPG+LNG)",r.ex.rr],["Food (diesel transport)",r.ex.food],["Interest (oil→CPI→yield)",r.ex.int],["Defence fuel",r.ex.def]].forEach(([n,v])=>{
+    bh+=`<div class="row"><span class="rlbl">${n}</span><span class="rval" style="color:${v>5000?'#dc2626':v>500?'#d97706':'#64748b'}">${fS(v)}</span></div>`;});
+  bh+=`<div class="totrow"><span class="totlbl">Net Expenditure Δ</span><span class="totval" style="color:#dc2626">${fS(r.tE)}</span></div>`;
+  bh+=`<div style="margin-top:9px;padding:7px 10px;border-radius:6px;background:${s.c}0d;border:1px solid ${s.c}30">
+    <div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:700;color:#0f172a">Fiscal Deficit Δ</span>
+    <span style="font-size:14px;font-family:monospace;font-weight:800;color:${s.c}">${fS(r.fdD)}</span></div>
+    <div style="font-size:9px;color:#64748b;margin-top:2px">₹16.96L → ₹${(r.nfd/1e5).toFixed(2)}L cr (${r.nfdg.toFixed(2)}% GDP)</div></div>`;
   document.getElementById('breakdown').innerHTML=bh;
 
   drawChart(document.getElementById('chart'),HIST,baseCY,wp,s.c);
-  document.getElementById('cLeg').innerHTML=`<span style="color:#58a6ff">━━</span> Target (FY${bCYr%100}) &nbsp;<span style="color:${s.c}">╌ ╌</span> War (FY${wCY%100}) &nbsp;<span style="color:#3fb950">┈┈</span> 3% mandate`+(dl>0?`<div style="color:${s.c};font-weight:700;margin-top:2px">Delays FRBM by ${dl}yr.</div>`:'');
+  document.getElementById('cLeg').innerHTML=`<span style="color:#0d1b2a">━━</span> FRBM Target (FY${bCYr%100}) &nbsp;<span style="color:${s.c}">╌ ╌</span> War Scenario (FY${wCY%100}) &nbsp;<span style="color:#059669">┈┈</span> 3% Mandate`+(dl>0?`<div style="color:${s.c};font-weight:700;margin-top:3px">War delays FRBM 3% target by ${dl} year${dl>1?'s':''}.</div>`:'');
 
   let qh='';
   [["Moderate ($110, 3m)",110,3],["Mod-Ext ($110, 6m)",110,6],["Severe ($130, 6m)",130,6],["Extreme ($150, 12m)",150,12]].forEach(([nm,o,d])=>{
     const t=compute(o,d);qh+=`<button class="qbtn" onclick="oil=${o};dur=${d};document.getElementById('oilS').value=${o};document.getElementById('durS').value=${d};update()">
-    <span style="font-weight:600">${nm}</span> → <span style="color:${cc(t.nfdg)};font-weight:700">${t.nfdg.toFixed(2)}%</span> <span style="color:#484f58">+${t.delay}yr</span></button>`;});
+    <span style="font-weight:600">${nm}</span> → <span style="color:${cc(t.nfdg)};font-weight:700">${t.nfdg.toFixed(2)}%</span> <span style="color:#94a3b8">+${t.delay}yr</span></button>`;});
   document.getElementById('qbtns').innerHTML=qh;
 
   const prices=[75,90,100,110,120,130,150,180],durs=[1,2,3,6,9,12];
-  let mt='<table><thead><tr><th>Dur↓/Oil→</th>';prices.forEach(p=>{mt+=`<th>${p}</th>`;});mt+='</tr></thead><tbody>';
-  durs.forEach(d=>{mt+=`<tr><td style="font-weight:600;color:#c9d1d9">${d}m</td>`;
+  let mt='<table><thead><tr><th>Dur↓ / Oil→</th>';prices.forEach(p=>{mt+=`<th>$${p}</th>`;});mt+='</tr></thead><tbody>';
+  durs.forEach(d=>{mt+=`<tr><td style="font-weight:600;color:#0f172a">${d}m</td>`;
     prices.forEach(p=>{const t=compute(p,d),dl2=gp(t.nfdg).pop().yr-bCYr;
-      mt+=`<td onclick="oil=${p};dur=${d};document.getElementById('oilS').value=${p};document.getElementById('durS').value=${d};update()" style="color:${cc(t.nfdg)}">${t.nfdg.toFixed(2)}%${dl2>0?'<div style=\"font-size:6px;color:#484f58\">+'+dl2+'yr</div>':''}</td>`;});
+      mt+=`<td onclick="oil=${p};dur=${d};document.getElementById('oilS').value=${p};document.getElementById('durS').value=${d};update()" style="color:${cc(t.nfdg)}">${t.nfdg.toFixed(2)}%${dl2>0?'<div style=\"font-size:6px;color:#94a3b8\">+'+dl2+'yr</div>':''}</td>`;});
     mt+='</tr>';});mt+='</tbody></table>';
   document.getElementById('matrix').innerHTML=mt;
 }
