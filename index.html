@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iran–Israel War: Fiscal Impact on India (FY 2026-27)</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5f7fa;color:#2d3748;font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;font-size:14px}
+.bar{height:3px;background:linear-gradient(90deg,#1b9e8c,#0d1b2a)}
+.hdr{background:#0d1b2a;padding:16px 20px}
+.wrap{max-width:1100px;margin:0 auto}
+h1{font-size:17px;font-weight:700;color:#fff}
+.auth{font-size:10px;color:#94a3b8;margin-top:4px;line-height:1.6}
+.main{padding:16px 20px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.slbl{font-size:10px;color:#64748b;font-family:monospace;letter-spacing:.8px;text-transform:uppercase}
+.sval{font-size:22px;font-weight:800}.sunit{font-size:11px;color:#94a3b8;font-weight:400}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;background:#cbd5e1;border-radius:3px;outline:none;cursor:pointer;margin:8px 0 4px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:#1b9e8c;border-radius:50%;cursor:pointer}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;background:#1b9e8c;border-radius:50%;cursor:pointer;border:none}
+.ticks{display:flex;justify-content:space-between;font-size:9px;color:#94a3b8}
+.mlbl{font-size:8px;color:#64748b;text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px}
+.mval{font-size:17px;font-weight:800}.msub{font-size:9px;color:#94a3b8;margin-top:1px}
+.h3{font-size:10px;font-family:monospace;color:#475569;margin:0 0 7px;letter-spacing:1px;text-transform:uppercase}
+.row{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #f1f5f9}
+.rlbl{font-size:10px;color:#334155}.rval{font-size:10px;font-family:monospace;font-weight:600}
+.totrow{display:flex;justify-content:space-between;padding:5px 0 0;margin-top:3px;border-top:2px solid #e2e8f0}
+.totlbl{font-size:10px;font-weight:700;color:#0f172a}.totval{font-size:11px;font-family:monospace;font-weight:700}
+canvas{width:100%;height:280px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:3px 5px;font-size:9px;text-align:center;border-bottom:1px solid #f1f5f9}
+th{border-bottom:2px solid #cbd5e1;color:#475569;font-size:8px;background:#f8fafc}
+td{font-family:monospace;font-weight:600;cursor:pointer}
+td:first-child,th:first-child{text-align:left}
+td:hover{background:#f0fdfa}
+.qbtn{background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:5px 7px;cursor:pointer;text-align:left;color:#334155;width:100%;font-family:inherit;font-size:9px;transition:all .15s}
+.qbtn:hover{background:#f0fdfa;border-color:#1b9e8c}
+.footer{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:12px 15px;font-size:9px;color:#64748b;line-height:1.9;margin-bottom:18px}
+.atbl{width:100%;font-size:9px;margin:4px 0}.atbl td{padding:3px 6px;border-bottom:1px solid #f1f5f9;text-align:right;font-family:monospace;font-weight:600}
+.atbl td:first-child{text-align:left;color:#64748b;font-family:inherit;font-weight:400}
+.bv{color:#059669}.wv{color:#dc2626}.cv{color:#d97706}
+@media(max-width:700px){.g2,.g4{grid-template-columns:1fr}.sval{font-size:18px}.mval{font-size:15px}}
+</style>
+</head>
+<body>
+<div class="bar"></div>
+<div class="hdr"><div class="wrap">
+<h1>Iran–Israel War: Fiscal Impact on India (FY 2026-27)</h1>
+<div class="auth">Dhruv Goel · Isaac Centre for Public Policy, Ashoka University · March 2026<br>
+Bottom-up estimation: Fertiliser (3 channels) · LPG (Saudi CP scaling) · SAED excise cut · Customs · OMC dividends</div>
+</div></div>
+<div class="wrap main">
+
+<!-- Sliders -->
+<div class="g2">
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<span class="slbl">Crude Oil (Indian Basket)</span>
+<span class="sval" id="oilD">$117<span class="sunit">/bbl</span></span>
+</div>
+<input type="range" id="oilS" min="70" max="200" value="117" step="1">
+<div class="ticks"><span>$70</span><span>$100</span><span>$125</span><span>$150</span><span>$200</span></div>
+</div>
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<span class="slbl">War Duration in FY 2026-27</span>
+<span class="sval" id="durD">9<span class="sunit"> months (Apr–Dec)</span></span>
+</div>
+<input type="range" id="durS" min="1" max="9" value="9" step="1">
+<div class="ticks"><span>1 (Apr)</span><span>3 (Jun)</span><span>6 (Sep)</span><span>9 (Dec)</span></div>
+</div>
+</div>
+
+<!-- Metrics -->
+<div class="g4" id="metrics"></div>
+
+<!-- Budget vs War -->
+<div class="card" style="margin-bottom:14px">
+<div class="h3">Budget Assumptions vs War Reality</div>
+<table class="atbl" id="asTbl"></table>
+</div>
+
+<!-- Breakdown + Chart -->
+<div class="g2">
+<div class="card" id="breakdown"></div>
+<div class="card">
+<div class="h3">FRBM Fiscal Deficit Glide Path (% of GDP)</div>
+<canvas id="chart" height="280"></canvas>
+<div id="cLeg" style="font-size:9px;color:#64748b;margin-top:6px;line-height:1.6"></div>
+<div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:5px" id="qbtns"></div>
+</div>
+</div>
+
+<!-- Matrix -->
+<div class="card" style="margin-bottom:14px">
+<div class="h3">Scenario Matrix: Fiscal Deficit (% of GDP)</div>
+<div id="matrix"></div>
+<div style="font-size:7px;color:#94a3b8;margin-top:3px">Click any cell. <span style="color:#059669">●</span> &lt;4.5% · <span style="color:#d97706">●</span> 4.5–5% · <span style="color:#ea580c">●</span> 5–5.5% · <span style="color:#dc2626">●</span> &gt;5.5%</div>
+</div>
+
+<!-- March note -->
+<div class="card" style="margin-bottom:14px;border-left:3px solid #d97706;background:#fffbeb">
+<div style="font-size:10px;color:#92400e;line-height:1.6">
+<b>Note on FY 2025-26 (March 2026):</b> The war began on 28 February 2026. The March impact falls on FY 2025-26: extra expenditure Rs 6,437 crore (fertiliser Rs 3,994 Cr + LPG Rs 2,443 Cr), net revenue gain Rs 259 crore (customs +Rs 1,868 Cr, dividend −Rs 1,609 Cr; no SAED cut in March). Net extra fiscal deficit: <b>Rs 6,178 crore</b>, pushing FY 2025-26 FD from 4.40% (RE) to <b>4.42%</b> (+0.02pp). This is excluded from the FY 2026-27 calculations shown above.
+</div>
+</div>
+
+<!-- Assumptions -->
+<div class="footer">
+<div style="font-size:11px;font-weight:700;color:#0d1b2a;margin-bottom:6px">Methodology & Key Assumptions</div>
+
+<b style="color:#475569">Estimation approach:</b> Bottom-up, channel-by-channel. Every number is either sourced from official data (PPAC, PIB, Union Budget SBE/FRBM) or flagged as an author assumption. No econometric estimation — this is a mechanical cost-pass-through model.<br><br>
+
+<b style="color:#475569">Price shock only, not quantity shock:</b> For fertiliser, the government has committed to ensuring full availability as demanded (PIB, 24 Mar 2026). For crude oil, India's Hormuz exposure (~40–50% of imports) is being partially offset by alternative sourcing from non-Gulf producers. We therefore model only the price increase, not supply disruption-driven rationing. This makes our estimates <b>conservative</b>.<br><br>
+
+<b style="color:#475569">Fertiliser — three channels:</b> (A) Costlier domestic urea production: gas blend shifts from 13/87 domestic/import to 28/72 (Gas Control Order, 9 Mar); spot LNG rises from $11.47 to $22–28/mmbtu; production capped at 67,000 MT/day. (B) Costlier urea imports: requirement 375 LMT vs 205 LMT war production → ~277 LMT imports at spot $700–770 vs pre-war $472/MT. (C) Costlier DAP imports: 53% imported, spot rises from $626.5 to $670–700/MT. Gas efficiency: 30 mmbtu/MT.<br><br>
+
+<b style="color:#475569">LPG:</b> OMC cost scaled with Saudi Aramco CP from PIB baseline (Rs 987 at $540/MT). Under-recovery = OMC cost − retail price (Rs 913 non-PMUY, Rs 613 PMUY). 75:25 govt–OMC split (FY24-25 precedent). War consumption 2,300 TMT/month (demand management).<br><br>
+
+<b style="color:#475569">Oil revenue:</b> SAED cut Rs 10/L on both petrol and diesel (Gazette, 26 Mar 2026). Customs gain: 2.5% BCD × Δcrude × monthly imports (PPAC). Dividend foregone: OMCs in loss → no dividends (Rs 1,609 Cr/month baseline). Pump prices frozen; Rs 2/month assumed increase from May.<br><br>
+
+<b style="color:#475569">Why these estimates are conservative:</b><br>
+(1) <b>GDP contraction not modelled:</b> We use the FRBM GDP figure (Rs 38.1 lakh crore) as denominator. Any war-induced GDP slowdown would raise FD-to-GDP mechanically.<br>
+(2) <b>OMC compensation not on budget:</b> OMC losses of Rs 4.5 lakh crore (10-month worst case) are off-budget. If the government compensates OMCs — as it did via Rs 1.4 lakh crore oil bonds during 2005–10 — the on-budget deficit would be significantly higher.<br>
+(3) <b>Food subsidy not modelled:</b> Diesel price increases raise transportation costs, which feed into food prices and potentially the food subsidy bill. This indirect channel is excluded.<br>
+(4) <b>Defence expenditure not modelled:</b> Any additional defence procurement or operational costs from the geopolitical situation are excluded.<br>
+(5) <b>NPK/MOP/SSP fertilisers excluded:</b> Only urea and DAP are modelled. Other fertiliser subsidies would also increase.<br>
+(6) <b>Volume substitution ignored:</b> The shift from cheaper domestic to costlier imports even at pre-war prices is not captured.<br><br>
+
+<b style="color:#475569">Sources:</b> Union Budget 2026-27 (SBE DG6, DG76, FRBM Statement), PPAC (PT_Consumption, PT_Import, Gas Report Jan 2026, Exchequer data), PIB (12/19/21/24 Mar 2026), World Bank Pink Sheet Mar 2026, Gazette Notification 26 Mar 2026, CBIC Chairman briefing 27 Mar 2026, PNGRB (PNG data Jan 2026), Economic Survey 2025-26, Business Standard.
+</div>
+</div>
+
+<script>
+// ═══ MODEL PARAMETERS (from our Excel files) ═══
+const GDP_FY27 = 3810989100; // Rs crore (FRBM)
+const GDP_FY26 = 3573479100;
+const FD_BE = 1638725.313; // Rs crore (4.3% of GDP)
+const FD_RE_26 = 0.044 * GDP_FY26 / 100; // 4.4%
+const PREWAR_CRUDE = 69.01;
+
+// Monthly consumption for FY26-27 (Apr-Dec, 9 months, from PPAC FY25-26)
+const MS_TMT = [3449,3782,3522,3493,3544,3399,3665,3517,3555]; // Apr-Dec
+const HSD_TMT = [8261,8592,8105,7364,6577,6786,7620,8557,8470];
+const CRUDE_IMP = [20986,21329,20314,18889,19603,20208,21005,21236,21588];
+const DIV_MONTHLY = 1609.167; // Rs Cr/month
+
+// March impact on FY25-26 (constant, shown as note)
+const MARCH_FY26 = { exp: 6437, rev: 259, net: 6178, fdPct: 4.42 };
+
+// Price interpolation from our model data points
+function interp(p, pts) {
+  if (p <= pts[0][0]) return pts[0][1];
+  if (p >= pts[pts.length-1][0]) return pts[pts.length-1][1];
+  for (let i = 0; i < pts.length-1; i++) {
+    if (p >= pts[i][0] && p <= pts[i+1][0]) {
+      const t = (p - pts[i][0]) / (pts[i+1][0] - pts[i][0]);
+      return pts[i][1] + t * (pts[i+1][1] - pts[i][1]);
+    }
+  }
+  return pts[pts.length-1][1];
+}
+
+function getINR(crude) { return interp(crude, [[69,87],[100,90],[117,93],[125,93],[140,95],[150,96],[200,102]]); }
+function getLNG(crude) { return interp(crude, [[69,11.47],[100,17],[117,20],[125,22],[140,26],[150,28],[200,38]]); }
+function getUrea(crude) { return interp(crude, [[69,472],[100,600],[117,700],[125,730],[140,750],[150,770],[200,900]]); }
+function getDAP(crude) { return interp(crude, [[69,626.5],[100,650],[117,660],[125,670],[140,690],[150,700],[200,780]]); }
+function getSaudiCP(crude) { return interp(crude, [[69,540],[100,600],[117,630],[125,650],[140,690],[150,720],[200,850]]); }
+function getPetFOB(crude) { return interp(crude, [[69,77],[117,123],[125,130],[140,133],[150,135],[200,160]]); }
+function getDslFOB(crude) { return interp(crude, [[69,83],[117,166],[125,176],[140,176],[150,176],[200,190]]); }
+
+// ═══ FERTILISER CALCULATION ═══
+function calcFert(crude, dur) {
+  const lng = getLNG(crude);
+  const inr = getINR(crude);
+  const APM = 6.81;
+  
+  // Pre-war blend: 13.2% domestic, 86.8% import
+  const prewar_blend = 0.132 * APM + 0.868 * 11.47; // $10.85
+  // War blend: 28% domestic, 72% import
+  const war_blend = 0.28 * APM + 0.72 * lng;
+  const extra_per_mmbtu = war_blend - prewar_blend;
+  const extra_per_MT_usd = extra_per_mmbtu * 30; // 30 mmbtu/MT
+  const extra_per_MT_rs = extra_per_MT_usd * inr;
+  
+  // Ch-A: production cost (67,000 MT/day) — Apr-Dec
+  let chA = 0;
+  const days_per_month = [30,31,30,31,31,30,31,30,31]; // Apr-Dec
+  for (let m = 0; m < dur; m++) {
+    chA += 67000 * days_per_month[m] * extra_per_MT_rs / 1e7; // Rs Crore
+  }
+  
+  // Ch-B: urea imports (Kharif Jun-Jul = index 2,3; Rabi Oct-Dec = index 6,7,8)
+  let chB = 0;
+  const urea_spot = getUrea(crude);
+  const urea_prewar = 472;
+  const kharif_months = [2,3]; // Jun, Jul (0-indexed in FY27 array)
+  const rabi_months = [6,7,8]; // Oct, Nov, Dec
+  
+  let kharif_covered = kharif_months.filter(m => m < dur).length;
+  let rabi_covered = rabi_months.filter(m => m < dur).length;
+  
+  if (kharif_covered > 0) {
+    const price_inc = (urea_spot - urea_prewar) * inr;
+    chB += 13823 * price_inc / 1e4;
+  }
+  if (rabi_covered > 0) {
+    const urea_rabi = interp(crude, [[69,472],[125,730],[140,760],[150,770],[200,900]]);
+    const price_inc = (urea_rabi - urea_prewar) * inr;
+    chB += 13823 * price_inc / 1e4;
+  }
+  
+  // Ch-C: DAP imports (same seasonal pattern)
+  let chC = 0;
+  const dap_prewar = 626.5;
+  
+  if (kharif_covered > 0) {
+    const dap_spot = getDAP(crude);
+    const price_inc = (dap_spot - dap_prewar) * inr;
+    chC += 4464 * price_inc / 1e4;
+  }
+  if (rabi_covered > 0) {
+    const dap_rabi = interp(crude, [[69,626.5],[125,670],[140,695],[150,700],[200,780]]);
+    const price_inc = (dap_rabi - dap_prewar) * inr;
+    chC += 4464 * price_inc / 1e4;
+  }
+  
+  return { chA: Math.round(chA), chB: Math.round(chB), chC: Math.round(chC), total: Math.round(chA+chB+chC) };
+}
+
+// ═══ LPG CALCULATION ═══
+function calcLPG(crude, dur) {
+  const inr = getINR(crude);
+  const cp_prewar = 540;
+  const cp_war = getSaudiCP(crude);
+  const omc_prewar = 987;
+  const omc_war = omc_prewar * (cp_war / cp_prewar);
+  
+  const ur_nonpmuy_pre = omc_prewar - 913; // 74
+  const ur_pmuy_pre = omc_prewar - 613; // 374
+  const ur_nonpmuy_war = omc_war - 913;
+  const ur_pmuy_war = omc_war - 613;
+  
+  const extra_ur = (0.68 * (ur_nonpmuy_war - ur_nonpmuy_pre) + 0.32 * (ur_pmuy_war - ur_pmuy_pre));
+  
+  const cyl_per_month = 2300 * 1e6 / 14.2; // ~162 million
+  const extra_per_month = extra_ur * cyl_per_month / 1e7; // Rs Crore
+  const govt_share = 0.75;
+  const omc_share = 0.25;
+  
+  const govt_total = Math.round(extra_per_month * dur * govt_share);
+  const omc_total = Math.round(extra_per_month * dur * omc_share);
+  
+  return { govt: govt_total, omc: omc_total, total: govt_total + omc_total, extraUR: Math.round(extra_ur) };
+}
+
+// ═══ REVENUE CALCULATION ═══
+function calcRevenue(crude, dur) {
+  const inr = getINR(crude);
+  const delta_crude = crude - PREWAR_CRUDE;
+  
+  // SAED loss: Rs 10/L on petrol+diesel — applies all FY26-27 months
+  let saed = 0;
+  for (let m = 0; m < dur; m++) {
+    const ms_mn_litres = MS_TMT[m] * 1e3 / 0.74 / 1e6;
+    const hsd_mn_litres = HSD_TMT[m] * 1e3 / 0.835 / 1e6;
+    saed -= 10 * (ms_mn_litres + hsd_mn_litres) / 10;
+  }
+  
+  // Customs gain: 2.5% BCD × delta_crude × imports (mn bbl) × INR / 10
+  let customs = 0;
+  for (let m = 0; m < dur; m++) {
+    const imp_mn_bbl = CRUDE_IMP[m] * 7.33 / 1e6;
+    customs += 0.025 * delta_crude * imp_mn_bbl * inr / 10;
+  }
+  
+  // Dividend foregone
+  const div = -DIV_MONTHLY * dur;
+  
+  return { saed: Math.round(saed), customs: Math.round(customs), div: Math.round(div), 
+           total: Math.round(saed + customs + div) };
+}
+
+// ═══ OMC LOSS ═══
+function calcOMC(crude, dur) {
+  const inr = getINR(crude);
+  const pet_fob = getPetFOB(crude);
+  const dsl_fob = getDslFOB(crude);
+  const pet_prewar = 77, dsl_prewar = 83;
+  
+  let total = 0;
+  for (let m = 0; m < dur; m++) {
+    const pet_extra = (pet_fob - pet_prewar) * inr / 159;
+    const dsl_extra = (dsl_fob - dsl_prewar) * inr / 159;
+    const saed_relief = 10; // SAED cut applies all FY26-27 months
+    const pump_hike = m === 0 ? 0 : m * 2; // Rs 2/month from May (m=1)
+    const net_pet = Math.max(0, pet_extra - saed_relief - pump_hike);
+    const net_dsl = Math.max(0, dsl_extra - saed_relief - pump_hike);
+    
+    const ms_ml = MS_TMT[m] * 1e3 / 0.74 / 1e6;
+    const hsd_ml = HSD_TMT[m] * 1e3 / 0.835 / 1e6;
+    total += (net_pet * ms_ml + net_dsl * hsd_ml) / 10;
+  }
+  return Math.round(total);
+}
+
+// ═══ FULL CALCULATION ═══
+function calc(crude, dur) {
+  const fert = calcFert(crude, dur);
+  const lpg = calcLPG(crude, dur);
+  const rev = calcRevenue(crude, dur);
+  const omc_pet = calcOMC(crude, dur);
+  const omc_lpg = lpg.omc;
+  
+  const totalExp = fert.total + lpg.govt;
+  const totalRevLoss = -rev.total; // positive = loss
+  const extraFD = totalExp + totalRevLoss;
+  const newFD = FD_BE + extraFD;
+  const fdPct = +(newFD / (GDP_FY27/100) * 100).toFixed(2);
+  
+  return {
+    fert, lpg, rev, omc_pet, omc_lpg,
+    totalExp, totalRevLoss, extraFD: Math.round(extraFD),
+    newFD: Math.round(newFD), fdPct,
+    inr: getINR(crude), lng: getLNG(crude),
+    saudiCP: getSaudiCP(crude)
+  };
+}
+
+// ═══ FRBM GLIDE PATH ═══
+const HIST = [{yr:2021,fd:9.2},{yr:2022,fd:6.7},{yr:2023,fd:6.4},{yr:2024,fd:5.6},{yr:2025,fd:4.5},{yr:2026,fd:4.4}];
+const PACE = 0.15; // pp/year reduction pace
+
+function glidePath(startFD) {
+  const pts = [{yr:2027,fd:startFD}];
+  let f = startFD;
+  for (let y = 2028; y <= 2050; y++) {
+    f = +(Math.max(3, f - PACE)).toFixed(2);
+    pts.push({yr:y, fd:f});
+    if (f <= 3) break;
+  }
+  return pts;
+}
+
+const basePath = glidePath(4.3);
+const baseTarget = basePath[basePath.length-1].yr;
+
+// ═══ FORMATTING ═══
+const fC = n => { const a=Math.abs(n); return a>=1e5?(n/1e5).toFixed(2)+'L':a>=1e3?(n/1e3).toFixed(0)+'K':n.toFixed(0); };
+const fS = n => (n>=0?'+':'')+'\u20B9'+fC(n)+' cr';
+const cc = v => v<4.5?'#059669':v<5?'#d97706':v<5.5?'#ea580c':'#dc2626';
+const sv = v => v<4.5?{c:'#059669',l:'Manageable'}:v<5?{c:'#d97706',l:'Stressed'}:v<5.5?{c:'#ea580c',l:'Severe'}:{c:'#dc2626',l:'Critical'};
+
+// ═══ CHART ═══
+function drawChart(cv, hist, bPath, wPath, sc) {
+  const ctx = cv.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const W = cv.offsetWidth * dpr, H = cv.offsetHeight * dpr;
+  cv.width = W; cv.height = H;
+  ctx.clearRect(0,0,W,H);
+  const p = {t:20,r:30,b:50,l:50}, cw = W-p.l-p.r, ch = H-p.t-p.b;
+  const all = [...hist,...bPath,...wPath];
+  const mn = Math.min(...all.map(d=>d.yr)), mx = Math.max(...all.map(d=>d.yr));
+  const x = y => p.l + (y-mn)/(mx-mn)*cw;
+  const y = f => p.t + (10-f)/8*ch;
+  
+  // Grid
+  ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1;
+  for (let f=2;f<=10;f+=1){ctx.beginPath();ctx.moveTo(p.l,y(f));ctx.lineTo(W-p.r,y(f));ctx.stroke()}
+  
+  // 3% mandate line
+  ctx.strokeStyle='#059669'; ctx.setLineDash([8,4]); ctx.lineWidth=1.5;
+  ctx.beginPath(); ctx.moveTo(p.l,y(3)); ctx.lineTo(W-p.r,y(3)); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='#059669'; ctx.font=(10*dpr)+'px system-ui'; ctx.textAlign='left';
+  ctx.fillText('3% FRBM Mandate',p.l+4,y(3)-4*dpr);
+  
+  // Y-axis labels
+  ctx.fillStyle='#64748b'; ctx.font=(11*dpr)+'px system-ui'; ctx.textAlign='right';
+  for (let f=2;f<=10;f+=2) ctx.fillText(f+'%',p.l-6,y(f)+4);
+  
+  // X-axis labels
+  ctx.textAlign='center'; const step = mx-mn>15?3:mx-mn>10?2:1;
+  for (let yr=mn;yr<=mx;yr+=step){ctx.save();ctx.translate(x(yr),H-p.b+20*dpr);ctx.rotate(-Math.PI/4);ctx.fillText('FY'+(yr%100),0,0);ctx.restore()}
+  
+  // Baseline path (solid dark)
+  ctx.strokeStyle='#0d1b2a'; ctx.lineWidth=2.5*dpr;
+  ctx.beginPath();
+  [...hist,...bPath].forEach((d,i)=>{i?ctx.lineTo(x(d.yr),y(d.fd)):ctx.moveTo(x(d.yr),y(d.fd))});
+  ctx.stroke();
+  [...hist,...bPath].forEach(d=>{ctx.fillStyle='#0d1b2a';ctx.beginPath();ctx.arc(x(d.yr),y(d.fd),3*dpr,0,Math.PI*2);ctx.fill()});
+  
+  // War path (dashed)
+  ctx.strokeStyle=sc; ctx.lineWidth=2.5*dpr; ctx.setLineDash([7*dpr,4*dpr]);
+  ctx.beginPath();
+  wPath.forEach((d,i)=>{i?ctx.lineTo(x(d.yr),y(d.fd)):ctx.moveTo(x(d.yr),y(d.fd))});
+  ctx.stroke(); ctx.setLineDash([]);
+  wPath.forEach(d=>{ctx.fillStyle=sc;ctx.beginPath();ctx.arc(x(d.yr),y(d.fd),3*dpr,0,Math.PI*2);ctx.fill()});
+}
+
+// ═══ UPDATE ═══
+let oil = 117, dur = 9;
+
+function update() {
+  const r = calc(oil, dur);
+  const s = sv(r.fdPct);
+  const wp = glidePath(r.fdPct);
+  const warTarget = wp[wp.length-1].yr;
+  const delay = warTarget - baseTarget;
+  
+  document.getElementById('oilD').innerHTML = '$'+oil+'<span class="sunit">/bbl</span>';
+  document.getElementById('oilD').style.color = oil>120?'#dc2626':oil>90?'#d97706':'#059669';
+  const months = ['Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.getElementById('durD').innerHTML = dur+'<span class="sunit"> mo (Apr\u2013'+months[dur-1]+')</span>';
+  
+  // Metrics
+  let mh = '';
+  [{l:'FD (FY 2026-27)',v:r.fdPct+'%',u:'BE: 4.30% \u2192 War: '+r.fdPct+'%',c:s.c},
+   {l:'Extra FD (FY 26-27)',v:'\u20B9'+fC(r.extraFD),u:fS(r.extraFD),c:r.extraFD>0?'#dc2626':'#059669'},
+   {l:'OMC Loss (off-budget)',v:'\u20B9'+fC(r.omc_pet+r.omc_lpg),u:'May need oil bonds',c:'#ea580c'},
+   {l:'FRBM 3% Target',v:delay>0?'FY'+(warTarget%100):'On track',u:delay>0?'+'+delay+' yr delay':'No delay',c:delay>2?'#dc2626':delay>0?'#d97706':'#059669'}
+  ].forEach(m => {
+    mh += '<div class="card" style="border-top:3px solid '+m.c+'"><div class="mlbl">'+m.l+'</div><div class="mval" style="color:'+m.c+'">'+m.v+'</div><div class="msub">'+m.u+'</div></div>';
+  });
+  document.getElementById('metrics').innerHTML = mh;
+  
+  // Assumptions table
+  let at = '<tr><td></td><td class="bv" style="font-family:inherit;font-weight:700">Budget</td><td class="wv" style="font-family:inherit;font-weight:700">War</td><td class="cv" style="font-family:inherit;font-weight:700">Change</td></tr>';
+  at += '<tr><td>Crude Oil ($/bbl)</td><td class="bv">69.01</td><td class="wv">'+oil+'</td><td class="cv">+'+((oil/69.01-1)*100).toFixed(0)+'%</td></tr>';
+  at += '<tr><td>LNG Spot ($/mmbtu)</td><td class="bv">11.47</td><td class="wv">'+r.lng.toFixed(1)+'</td><td class="cv">+'+((r.lng/11.47-1)*100).toFixed(0)+'%</td></tr>';
+  at += '<tr><td>INR/USD</td><td class="bv">87</td><td class="wv">'+r.inr.toFixed(1)+'</td><td class="cv">+'+((r.inr/87-1)*100).toFixed(1)+'%</td></tr>';
+  at += '<tr><td>Fertiliser Subsidy (Rs Cr)</td><td class="bv">1,70,945</td><td class="wv">'+(170945+r.fert.total).toLocaleString('en-IN')+'</td><td class="cv">+'+fC(r.fert.total)+'</td></tr>';
+  at += '<tr><td>LPG + OMC comp (Rs Cr)</td><td class="bv">28,585</td><td class="wv">'+(28585+r.lpg.govt).toLocaleString('en-IN')+'</td><td class="cv">+'+fC(r.lpg.govt)+'</td></tr>';
+  at += '<tr><td>FY 2026-27 war duration</td><td class="bv">\u2014</td><td class="wv">'+dur+' mo (Apr\u2013'+months[dur-1]+')</td><td class="cv"></td></tr>';
+  document.getElementById('asTbl').innerHTML = at;
+  
+  // Breakdown
+  let bh = '<div class="h3">Extra Expenditure (FY 2026-27)</div>';
+  [['Fertiliser Ch-A (domestic gas cost)',r.fert.chA],['Fertiliser Ch-B (urea imports)',r.fert.chB],['Fertiliser Ch-C (DAP imports)',r.fert.chC],['LPG subsidy (govt 75%)',r.lpg.govt]].forEach(([n,v])=>{
+    const c = v>10000?'#dc2626':v>1000?'#d97706':'#64748b';
+    bh += '<div class="row"><span class="rlbl">'+n+'</span><span class="rval" style="color:'+c+'">'+fS(v)+'</span></div>';
+  });
+  bh += '<div class="totrow"><span class="totlbl">Total Extra Expenditure</span><span class="totval" style="color:#dc2626">'+fS(r.totalExp)+'</span></div>';
+  
+  bh += '<div class="h3" style="margin-top:11px">Revenue Changes</div>';
+  [['SAED excise cut (Apr onwards)',r.rev.saed],['Customs gain (2.5% BCD)',r.rev.customs],['Dividend foregone',r.rev.div]].forEach(([n,v])=>{
+    const c = v>0?'#059669':'#dc2626';
+    bh += '<div class="row"><span class="rlbl">'+n+'</span><span class="rval" style="color:'+c+'">'+fS(v)+'</span></div>';
+  });
+  bh += '<div class="totrow"><span class="totlbl">Net Revenue Change</span><span class="totval" style="color:'+(r.rev.total>0?'#059669':'#dc2626')+'">'+fS(r.rev.total)+'</span></div>';
+  
+  bh += '<div style="margin-top:10px;padding:8px 10px;border-radius:6px;background:'+s.c+'0d;border:1px solid '+s.c+'30">';
+  bh += '<div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:700">Extra Fiscal Deficit</span><span style="font-size:14px;font-family:monospace;font-weight:800;color:'+s.c+'">'+fS(r.extraFD)+'</span></div>';
+  bh += '<div style="font-size:9px;color:#64748b;margin-top:2px">FY 2026-27: \u20B916.39L \u2192 \u20B9'+(r.newFD/1e5).toFixed(2)+'L cr ('+r.fdPct+'% GDP) · <span style="color:'+s.c+'">'+s.l+'</span></div>';
+  bh += '</div>';
+  
+  bh += '<div style="margin-top:8px;padding:6px 10px;border-radius:6px;background:#fef2f2;border:1px solid #fecaca;font-size:9px;color:#991b1b">';
+  bh += '<b>Off-budget:</b> OMC petrol/diesel loss \u20B9'+fC(r.omc_pet)+' cr + LPG (25%) \u20B9'+fC(r.omc_lpg)+' cr = <b>\u20B9'+fC(r.omc_pet+r.omc_lpg)+' cr</b>';
+  bh += '</div>';
+  
+  document.getElementById('breakdown').innerHTML = bh;
+  
+  // Chart
+  drawChart(document.getElementById('chart'), HIST, basePath, [{yr:2026,fd:4.4},...wp], s.c);
+  document.getElementById('cLeg').innerHTML = 
+    '<span style="display:inline-block;width:30px;height:2px;background:#0d1b2a;vertical-align:middle;margin-right:4px"></span> FRBM Baseline (3% by FY'+(baseTarget%100)+') ' +
+    '<span style="display:inline-block;width:30px;height:0;border-top:2px dashed '+s.c+';vertical-align:middle;margin:0 4px"></span> War Scenario (3% by FY'+(warTarget%100)+') ' +
+    '<span style="display:inline-block;width:30px;height:0;border-top:2px dashed #059669;vertical-align:middle;margin:0 4px"></span> 3% FRBM Mandate' +
+    (delay>0?'<div style="color:'+s.c+';font-weight:700;margin-top:4px">\u26A0 War delays FRBM 3% target by '+delay+' year'+(delay>1?'s':'')+'.</div>':'');
+  
+  // Quick buttons
+  let qh = '';
+  [['Pre-war ($69)',69,0],['Moderate ($100, 3m)',100,3],['Current ($117, 9m)',117,9],['Severe ($150, 9m)',150,9]].forEach(([nm,o,d])=>{
+    const t = calc(o, d||1);
+    const tg = glidePath(d===0?4.3:t.fdPct);
+    const tdl = tg[tg.length-1].yr - baseTarget;
+    qh += '<button class="qbtn" onclick="oil='+o+';dur='+(d||1)+';document.getElementById(\'oilS\').value='+o+';document.getElementById(\'durS\').value='+(d||1)+';update()"><span style="font-weight:600">'+nm+'</span> \u2192 <span style="color:'+cc(d===0?4.3:t.fdPct)+';font-weight:700">'+(d===0?'4.30':t.fdPct)+'%</span>'+(tdl>0?' <span style="color:#94a3b8">+'+tdl+'yr</span>':'')+'</button>';
+  });
+  document.getElementById('qbtns').innerHTML = qh;
+  
+  // Matrix
+  const ps = [80,100,117,125,140,150,175,200];
+  const ds = [1,2,3,6,9];
+  let mt = '<table><thead><tr><th>FY27 Months\u2193 / Oil\u2192</th>';
+  ps.forEach(p => mt += '<th>$'+p+'</th>');
+  mt += '</tr></thead><tbody>';
+  ds.forEach(d => {
+    mt += '<tr><td style="font-weight:600;color:#0f172a">'+d+'m</td>';
+    ps.forEach(p => {
+      const t = calc(p, d);
+      const tg = glidePath(t.fdPct);
+      const tdl = tg[tg.length-1].yr - baseTarget;
+      mt += '<td onclick="oil='+p+';dur='+d+';document.getElementById(\'oilS\').value='+p+';document.getElementById(\'durS\').value='+d+';update()" style="color:'+cc(t.fdPct)+'">'+t.fdPct+'%'+(tdl>0?'<div style="font-size:6px;color:#94a3b8">+'+tdl+'yr</div>':'')+'</td>';
+    });
+    mt += '</tr>';
+  });
+  mt += '</tbody></table>';
+  document.getElementById('matrix').innerHTML = mt;
+}
+
+document.getElementById('oilS').addEventListener('input', e => { oil = +e.target.value; update(); });
+document.getElementById('durS').addEventListener('input', e => { dur = +e.target.value; update(); });
+window.addEventListener('resize', update);
+update();
+</script>
+</body>
+</html>
